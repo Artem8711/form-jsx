@@ -3,9 +3,12 @@ root.render(<App />);
 
 function App() {
    const isLight = true;
+   const name = `Karolina`;
    return (
       <>
          <ThemeButton isLightTheme={isLight} />
+         <Greeting isGreeting={true} userName={name} />
+         <Greeting isGreeting={false} userName={`Danya`} />
       </>
    );
 }
@@ -19,4 +22,14 @@ function ThemeButton(prop) {
    };
 
    return <button style={buttonStyle}>Swithc to {isLightTheme ? `dark` : `light`}</button>;
+}
+
+function Greeting(props) {
+   const { userName, isGreeting } = props;
+
+   return (
+      <div>
+         {isGreeting ? 'hello' : 'goodbye'} {userName}
+      </div>
+   );
 }
